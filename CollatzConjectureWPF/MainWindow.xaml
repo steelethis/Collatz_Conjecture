@@ -1,0 +1,27 @@
+﻿<Window x:Class="CollatzConjectureWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:local="clr-namespace:CollatzConjectureWPF"
+        mc:Ignorable="d"
+        Title="Collatz Conjecture Graph Utility" Height="474.666" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="76*"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="groupBox" Header="Settings" VerticalAlignment="Top" Height="60" Margin="10,10,10,0">
+            <StackPanel Orientation="Horizontal" >
+                <Label x:Name="label" Content="Enter a Number:" VerticalAlignment="Center"/>
+                <TextBox x:Name="textBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="60"/>
+                <Button x:Name="button" Content="Start" VerticalAlignment="Center" Margin="30,0,0,0" Width="50"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="Results" VerticalAlignment="Top" Margin="10,75,10,0" Height="60">
+            <Label x:Name="Results" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </GroupBox>
+        <oxy:Plot Title="Test" Margin="10" Grid.Row="1"></oxy:Plot>
+    </Grid>
+</Window>
