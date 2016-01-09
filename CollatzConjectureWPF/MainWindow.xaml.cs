@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OxyPlot;
 
 namespace CollatzConjectureWPF
 {
@@ -23,6 +24,28 @@ namespace CollatzConjectureWPF
         public MainWindow()
         {
             InitializeComponent();
+            testGraph.Title = "Test Graph";
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            testGraph.InvalidatePlot(true);
+
+            int startingNumber;
+            startingNumber = Int32.Parse(textBox.Text);
+
+            CollatzConjecture collatzCalculator = new CollatzConjecture(startingNumber);
+
+            Dictionary<int, int> collatzData = collatzCalculator.Calculate();
+
+            List<DataPoint> collatzPoints = new List<DataPoint>();
+
+            foreach (var kvp in collatzData)
+            {
+                collatzPoints.Add(new DataPoint(kvp.Key, kvp.Value));
+            }
+
+            TestSeries.ItemsSource = collatzPoints;
         }
     }
 }

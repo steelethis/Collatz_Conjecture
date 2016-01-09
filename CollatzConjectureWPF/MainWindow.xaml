@@ -6,22 +6,18 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local="clr-namespace:CollatzConjectureWPF"
         mc:Ignorable="d"
-        Title="Collatz Conjecture Graph Utility" Height="474.666" Width="525">
+        Title="MainWindow" Height="448" Width="525">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="76*"/>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="238*"/>
         </Grid.RowDefinitions>
-        <GroupBox x:Name="groupBox" Header="Settings" VerticalAlignment="Top" Height="60" Margin="10,10,10,0">
-            <StackPanel Orientation="Horizontal" >
-                <Label x:Name="label" Content="Enter a Number:" VerticalAlignment="Center"/>
-                <TextBox x:Name="textBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="60"/>
-                <Button x:Name="button" Content="Start" VerticalAlignment="Center" Margin="30,0,0,0" Width="50"/>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox x:Name="groupBox1" Header="Results" VerticalAlignment="Top" Margin="10,75,10,0" Height="60">
-            <Label x:Name="Results" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        </GroupBox>
-        <oxy:Plot Title="Test" Margin="10" Grid.Row="1"></oxy:Plot>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="15,13,0,0"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="140,13,0,0" Height="23" Click="button_Click"/>
+        <oxy:Plot x:Name="testGraph" Title="Test" Grid.Row="1" Margin="0,0,0,10">
+            <oxy:Plot.Series>
+                <oxy:LineSeries x:Name="TestSeries" />
+            </oxy:Plot.Series>
+        </oxy:Plot>
     </Grid>
 </Window>
