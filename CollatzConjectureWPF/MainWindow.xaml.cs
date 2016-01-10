@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using OxyPlot;
+using OxyPlot.Axes;
+using OxyPlot.Series;
 
 namespace CollatzConjectureWPF
 {
@@ -24,28 +26,38 @@ namespace CollatzConjectureWPF
         public MainWindow()
         {
             InitializeComponent();
-            testGraph.Title = "Test Graph";
+            CollatzGraph.Title = "Results of Collatz Conjecture";
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Start_OnClick(object sender, RoutedEventArgs e)
         {
-            testGraph.InvalidatePlot(true);
+            CollatzGraph.InvalidatePlot(true);
 
             int startingNumber;
-            startingNumber = Int32.Parse(textBox.Text);
+            try
+            {
+                startingNumber = Int32.Parse(textBox.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid input!");
+                return;
+            }
+
 
             CollatzConjecture collatzCalculator = new CollatzConjecture(startingNumber);
 
             Dictionary<int, int> collatzData = collatzCalculator.Calculate();
 
-            List<DataPoint> collatzPoints = new List<DataPoint>();
+            List<ScatterPoint> collatzPoints = new List<ScatterPoint>();
 
             foreach (var kvp in collatzData)
             {
-                collatzPoints.Add(new DataPoint(kvp.Key, kvp.Value));
+                collatzPoints.Add(new ScatterPoint(kvp.Key, kvp.Value));
             }
 
-            TestSeries.ItemsSource = collatzPoints;
+            DataSeries.ItemsSource = collatzPoints;
+
         }
     }
 }

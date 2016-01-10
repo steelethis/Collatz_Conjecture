@@ -6,17 +6,21 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local="clr-namespace:CollatzConjectureWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="448" Width="525">
+        Title="Collatz Conjecture Plotter" Height="448" Width="525">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="81*"/>
             <RowDefinition Height="238*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="15,13,0,0"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="140,13,0,0" Height="23" Click="button_Click"/>
-        <oxy:Plot x:Name="testGraph" Title="Test" Grid.Row="1" Margin="0,0,0,10">
+        <Button x:Name="Start" Content="Start Calculation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="140,13,0,0" Height="23" Click="Start_OnClick"/>
+        <oxy:Plot x:Name="CollatzGraph" Grid.Row="1" Margin="0,0,0,10">
+            <oxy:Plot.Axes>
+                <oxy:LinearAxis Position="Bottom" x:Name="XAxis" Title="Step"/>
+                <oxy:LinearAxis Position="Left" x:Name="YAxis" Title="Result"/>
+            </oxy:Plot.Axes>
             <oxy:Plot.Series>
-                <oxy:LineSeries x:Name="TestSeries" />
+                <oxy:ScatterSeries x:Name="DataSeries" />
             </oxy:Plot.Series>
         </oxy:Plot>
     </Grid>

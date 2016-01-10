@@ -11,7 +11,7 @@ namespace CollatzConjecture
         private static void Main()
         {
             int n = 0;
-            int steps = 0;
+            int steps = 1;
 
             Console.WriteLine("******** COLLATZ CONJECTURE ********\n\n\n");
             Console.Write("Enter a number greater than 1>>> ");
